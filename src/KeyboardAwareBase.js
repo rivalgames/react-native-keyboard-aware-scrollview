@@ -36,12 +36,9 @@ export default class KeyboardAwareBase extends Component {
   _removeKeyboardListeners() {
     this.keyboardEventListeners.forEach((eventListener) => eventListener.remove());
   }
-  
-  componentWillMount() {
-    this._addKeyboardEventListeners();
-  }
 
   componentDidMount() {
+    this._addKeyboardEventListeners();
     if(this._keyboardAwareView && this.props.startScrolledToBottom) {
       this.scrollToBottom(false);
       setTimeout(() => this._keyboardAwareView.setNativeProps({ opacity: 1 }), 100);
